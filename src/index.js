@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, createContext } from 'react';
+
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 import './sass/index.scss';
 import App from './App';
 
+
+const CartContext = createContext();
 const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
-	<Router>
+	<CartContext.Provider>
+		<Router>
 		<AppWithRouter />
-	</Router>,
+		</Router>
+	</CartContext.Provider>,
 	document.getElementById('root')
 );
